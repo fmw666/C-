@@ -20,8 +20,13 @@
 
   右键项目`添加新文件...`，选择`C++ Source File`
   
-  添加文件进去，
+  添加文件进去
+  
+  ![ZU9LT{0P$F82PO)EYDM}2)K.png](https://i.loli.net/2018/11/13/5beabe9a27234.png)
+  
+  选择`复制资源路径`
   > 在[main.cpp]()中
   ```cpp
-  w.setWindowTitle("飞跃忍者");
+  w.setWindowIcon(QIcon(":/new/prefix1/C:/Users/fmw19/Desktop/素材/武士忍者剪影图片/icon.png"));
   ```
++ 进行ui设计，设计完成大体框架

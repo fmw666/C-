@@ -32,6 +32,6 @@
   
   来看下效果
   
-  ![J2E8RL_48FG@R]HVA{3{PHO.png](https://i.loli.net/2018/11/13/5beabf81afe6d.png)
+  ![J2E8RL_48FG@R\]HVA{3{PHO.png](https://i.loli.net/2018/11/13/5beabf81afe6d.png)
   
 + 进行ui设计，设计完成大体框架

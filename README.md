@@ -1,2 +1,2 @@
-# C++
-C++ study  and   C++ code
+# 说明
+基于Qt的应用程序、游戏开发

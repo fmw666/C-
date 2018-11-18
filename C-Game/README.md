@@ -107,6 +107,21 @@
   #include <windows.h>
   system("mode con cols=30 lines=20");  //其中30为宽的值，20为高的值
   ```
++ **固定窗口大小**
+  ```c
+  #include <windows.h>
+  void fixWinSize()  
+  {
+      HWND hWnd = GetConsoleWindow(); //获得cmd窗口句柄
+      RECT rc;
+      GetWindowRect(hWnd, &rc); //获得cmd窗口对应矩形
+
+      //改变cmd窗口风格
+      SetWindowLongPtr(hWnd,GWL_STYLE, GetWindowLong(hWnd, GWL_STYLE) & ~WS_THICKFRAME & ~WS_MAXIMIZEBOX & ~WS_MINIMIZEBOX);
+  }
+  
+  fixWinSize();
+  ```
 + **修改字体颜色、背景颜色**
 
   > ***方法一：***

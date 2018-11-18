@@ -9,6 +9,11 @@
   #include <windows.h>
   Sleep(20);    //其中20的单位为毫秒
   ```
++ **停止等待函数**
+  ```c
+  #include <windows.h>
+  system("pause");
+  ```
 + **系统自带发出铃声**
   ```c
   printf("\a");
@@ -121,6 +126,11 @@
   }
   
   fixWinSize();
+  ```
++ **修改窗口标题**
+  ```c
+  #include <windows.h>
+  SetConsoleTitleA("name");
   ```
 + **修改字体颜色、背景颜色**
 

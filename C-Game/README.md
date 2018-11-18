@@ -108,9 +108,12 @@
   system("mode con cols=30 lines=20");  //其中30为宽的值，20为高的值
   ```
 + **修改字体颜色、背景颜色**
+
+  > ***方法一：***
   ```c
   #include <windows.h>
-  system("color 01");
+  system("color 07");     //(07)为默认的黑底白字。其中0为背景色，7为前景色
+  
   /*
   颜色属性由两个十六进制数字指定 
   -- 第一个为背景色，第二个则为前景色。
@@ -125,8 +128,45 @@
   7 = 白色 F = 亮白色
   */
   ```
+  > ***方法二：***
+  ```c
+  #include <windows.h>
+  
+  void SetColor(unsigned short BackGroundColor,unsigned short ForeColor)
+  {
+      HANDLE hCon=GetStdHandle(STD_OUTPUT_HANDLE);
+      SetConsoleTextAttribute(hCon,(ForeColor%16)|(BackGroundColor%16*16));
+  }
+  
+  SetColor(0,7);   //(0,7)为默认的黑底白字。其中0为背景色，7为前景色
+  ```
+  > ***示例：***
+  ```c
+  #include <windows.h>
+  #include <stdio.h>
+
+  void SetColor(unsigned short BackGroundColor,unsigned short ForeColor)
+  {
+      HANDLE hCon=GetStdHandle(STD_OUTPUT_HANDLE);
+      SetConsoleTextAttribute(hCon,(ForeColor%16)|(BackGroundColor%16*16));
+  }
+
+  int main()
+  {
+      system("color 70");
+      printf("方法一\n");
+
+      int i,j;
+      while(scanf("%d %d",&i,&j))
+      {
+          SetColor(i,j);
+          printf("方法二\n");
+      }
+  }
+  ```
+  ![color.png](https://i.loli.net/2018/11/18/5bf0d8d1cd1eb.png)
 + **修改字体大小**
   ```c
-  
+  //暂未
   ```
   

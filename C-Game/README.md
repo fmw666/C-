@@ -144,9 +144,16 @@
   fixWinSize();
   ```
 + **修改窗口标题**
+
+  > ***方法一：***
   ```c
   #include <windows.h>
   SetConsoleTitleA("name");
+  ```
+  > ***方法二：***
+  ```c
+  #include <windows.h>
+  system("title name");
   ```
 + **修改字体颜色、背景颜色**
 

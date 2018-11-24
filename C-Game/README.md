@@ -213,6 +213,11 @@
   }
   ```
   ![color.png](https://i.loli.net/2018/11/18/5bf0d8d1cd1eb.png)
++ **修改文本颜色**
+  ```c  
+  #include <windows.h>
+  SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);	//设置颜色
+  ```
 + **添加背景音乐**
   ```c
   #pragma comment(lib,"Winmm.lib")

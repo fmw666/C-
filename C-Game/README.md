@@ -213,9 +213,10 @@
   }
   ```
   ![color.png](https://i.loli.net/2018/11/18/5bf0d8d1cd1eb.png)
-+ **修改字体大小**
++ **添加背景音乐**
   ```c
-  //暂未
+  #pragma comment(lib,"Winmm.lib")
+  
   ```
 + **修改字体大小**
   ```c

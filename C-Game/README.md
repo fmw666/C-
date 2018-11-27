@@ -15,9 +15,6 @@
       return 0;
   }
   ```
-目录：
-  1. 
-
 + **清屏函数**
   ```c
   #include <stdlib.h>

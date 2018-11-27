@@ -35,10 +35,28 @@
   
   1. [光标移动到原点位置进行重画(实现类似于清屏函数的效果)](#9)
   
-  1. 
-  1. 
-  1. 
-  1. 
+  1. [隐藏光标显示函数](#10)
+  ***窗口***
+  1. [修改窗口大小(静态)](#11)
+  
+  1. [修改窗口大小(动态)](#12) 
+  
+  1. [固定窗口大小](#13)
+  
+  1. [修改窗体风格](#14)
+  
+  1. [设置指定窗口的显示状态](#15)
+  
+  1. [修改窗口标题](#16)
+  
+  1. [弹出消息框](#17)
+  
+  1. [修改字体颜色、背景颜色 ](#18)
+  
+  1. [修改文本颜色](#19)
+  
+  1. [修改窗体icon图标](#20)
+  
   <a name="1"></a>
 + **清屏函数**
   ```c
@@ -141,6 +159,7 @@
       gotoxy(0,0);
   }
   ```
+  <a name="10"></a>
 + **隐藏光标显示函数**
   ```c
   #include <windows.h>
@@ -156,11 +175,13 @@
       HideCursor();
   }
   ```
+  <a name="11"></a>
 + **修改窗口大小(静态)**
   ```c
   #include <windows.h>
   system("mode con cols=30 lines=20");  //其中30为宽的值，20为高的值
   ```
+  <a name="12"></a>
 + **修改窗口大小(动态)**
   ```c
   #include<stdio.h>
@@ -180,6 +201,7 @@
       setWinSize(height,width);
   }
   ```
+  <a name="13"></a>
 + **固定窗口大小**
   ```c
   #include <windows.h>
@@ -195,6 +217,7 @@
   
   fixWinSize();
   ```
+  <a name="14"></a>
 + **修改窗体风格**
   ```c
   #include <windows.h>
@@ -208,6 +231,7 @@
       SetWindowLong(hwnd, GWL_STYLE, Style);	 //为窗口设置新的风格
   }
   ```
+  <a name="15"></a>
 + **设置指定窗口的显示状态**
   ```c
   #include <windows.h>
@@ -215,6 +239,7 @@
   ShowWindow(FindWindowA("ConsoleWindowClass",NULL),SW_HIDE);     //隐藏窗口
   ShowWindow(FindWindowA("ConsoleWindowClass",NULL),SW_SHOW);     //显示窗口
   ```
+  <a name="16"></a>
 + **修改窗口标题**
 
   > ***方法一：***
@@ -227,12 +252,14 @@
   #include <windows.h>
   system("title name");
   ```
+  <a name="17"></a>
 + **弹出消息框**
   ```c
   #include <windows.h>
 
   MessageBoxA(0,"内容","标题",MB_OK|MB_SYSTEMMODAL);  //MB_OK表示有确认键，MB_SYSTEMMODAL表示在窗口置顶
   ```
+  <a name="18"></a>
 + **修改字体颜色、背景颜色**
 
   > ***方法一：***
@@ -291,6 +318,7 @@
   }
   ```
   ![color.png](https://i.loli.net/2018/11/18/5bf0d8d1cd1eb.png)
+  <a name="19"></a>
 + **修改文本颜色**
   ```c  
   #include <windows.h>
@@ -305,6 +333,7 @@
   ```c
   //暂未
   ```
+  <a name="20"></a>
 + **修改窗体icon图标**
 
   Dev-C++ 新建项目->`Ctrl+H`(项目属性)

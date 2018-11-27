@@ -123,10 +123,29 @@
       HideCursor();
   }
   ```
-+ **修改窗口大小**
++ **修改窗口大小(静态)**
   ```c
   #include <windows.h>
   system("mode con cols=30 lines=20");  //其中30为宽的值，20为高的值
+  ```
++ **修改窗口大小(动态)**
+  ```c
+  #include<stdio.h>
+  #include<windows.h>
+
+  void setWinSize(int height,int width)
+  {
+      char str[20];
+      sprintf(str, "mode con: cols=%d lines=%d", height, width);
+      system(str);
+  }
+
+  int main()
+  {
+      int height, width;
+      scanf("%d %d", &height, &width);       //输入高和宽的值
+      setWinSize(height,width);
+  }
   ```
 + **固定窗口大小**
   ```c
@@ -143,6 +162,26 @@
   
   fixWinSize();
   ```
++ **修改窗体风格**
+  ```c
+  #include <windows.h>
+  
+  void setWinLong()
+  {
+      HWND hwnd = GetConsoleWindow();
+      LONG Style;	//窗口风格
+      Style = GetWindowLong(hwnd, GWL_STYLE);	 // 得到窗口风格
+      Style = Style & ~WS_CAPTION;			 //去掉标题栏，网上可查选
+      SetWindowLong(hwnd, GWL_STYLE, Style);	 //为窗口设置新的风格
+  }
+  ```
++ **设置指定窗口的显示状态**
+  ```c
+  #include <windows.h>
+
+  ShowWindow(FindWindowA("ConsoleWindowClass",NULL),SW_HIDE);     //隐藏窗口
+  ShowWindow(FindWindowA("ConsoleWindowClass",NULL),SW_SHOW);     //显示窗口
+  ```
 + **修改窗口标题**
 
   > ***方法一：***
@@ -154,6 +193,12 @@
   ```c
   #include <windows.h>
   system("title name");
+  ```
++ **弹出消息框**
+  ```c
+  #include <windows.h>
+
+  MessageBoxA(0,"内容","标题",MB_OK|MB_SYSTEMMODAL);  //MB_OK表示有确认键，MB_SYSTEMMODAL表示在窗口置顶
   ```
 + **修改字体颜色、背景颜色**
 
@@ -227,3 +272,30 @@
   ```c
   //暂未
   ```
++ **修改窗体icon图标**
+
+  Dev-C++ 新建项目->`Ctrl+H`(项目属性)
++ **键盘输入上下左右，回车确定，Esc退出**
+  ```
+  char input;
+  while(1)
+  {
+      input=getch();
+      if(input==27){            //Esc键ASCII码为27
+      }
+      if(input==13){            //回车键ASCII码为13
+      }
+      if(input!=-32) continue;  //避免因从键盘上输入的其他无关值影响程序进行
+      input=getch();            //在读取上下左右ASCII码前必须添加
+      if(input==72){            //上的ASCII码为72
+      }
+      if(input==80){            //下的ASCII码为80
+      }
+      if(input==75){            //左的ASCII码为75
+      }
+      if(input==77){            //右的ASCII码为77
+      }
+  }
+  ```
+  
+  

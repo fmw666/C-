@@ -36,6 +36,9 @@
   1. [光标移动到原点位置进行重画(实现类似于清屏函数的效果)](#9)
   
   1. [隐藏光标显示函数](#10)
+  
+  1. [添加背景音乐](#21)
+  
   ***窗口***
   1. [修改窗口大小(静态)](#11)
   
@@ -324,6 +327,7 @@
   #include <windows.h>
   SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);	//设置颜色
   ```
+  <a name="21"></a>
 + **添加背景音乐**
   ```c
   #pragma comment(lib,"Winmm.lib")

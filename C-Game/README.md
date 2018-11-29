@@ -39,6 +39,8 @@
   
   1. [添加背景音乐](#21)
   
+  1. [计时函数](#22)
+  
   ***窗口***
   1. [修改窗口大小(静态)](#11)
   
@@ -59,6 +61,8 @@
   1. [修改文本颜色](#19)
   
   1. [修改窗体icon图标](#20)
+  
+  1. [修改窗体透明度](#23)
   
   <a name="1"></a>
 + **清屏函数**
@@ -333,7 +337,43 @@
 + **添加背景音乐**
   ```c
   #pragma comment(lib,"Winmm.lib")
-  
+  //仅在VC下支持，需要的自行百度
+  ```
+  <a name="22"></a>
++ **计数函数**
+
+  > ***方法一：***
+  ```c
+  #include <stdio.h>
+  #include <time.h>
+  #include <windows.h>
+
+  int main()
+  {
+      clock_t start,end;
+      start = clock();
+
+      Sleep(2000);
+
+      end = clock();
+      printf("time=%f\n",(double)(end-start)/CLK_TCK);
+  }
+  ```
+  > ***方法二：***
+  ```c
+  #include <stdio.h>
+  #include <windows.h>
+
+  int main()
+  {
+      DWORD end,start;
+      start= GetTickCount();
+
+      Sleep(2000);
+
+      end= GetTickCount();
+      printf("time=%d\n",end-start);
+  }
   ```
 + **修改字体大小**
   ```c
@@ -343,6 +383,25 @@
 + **修改窗体icon图标**
 
   Dev-C++ 新建项目->`Ctrl+H`(项目属性)
+  <a name="23"></a>
++ **修改窗体透明度**
+  ```c
+  #include <windows.h>
+
+  void setWinTransparent()
+  {
+      HWND hwnd = GetConsoleWindow();
+      int ExdStyle = (int)GetWindowLong(hwnd, GWL_EXSTYLE);
+      //通过SetWindowLong设置窗口的属性，多增加了一个WS_EX_LAYERED支持透明
+      SetWindowLong(hwnd, GWL_EXSTYLE, ExdStyle | WS_EX_LAYERED);
+      SetLayeredWindowAttributes(GetConsoleWindow(),RGB(255, 255, 255), 200, LWA_ALPHA);//200为透明度值（0-255）
+  }
+
+  int main()
+  {
+      setWinTransparent();
+  }
+  ```
 + **键盘输入上下左右，回车确定，Esc退出**
   ```c
   char input;
